@@ -1,0 +1,22 @@
+<p>division-dashboard works!</p>
+
+<div *ngIf="divisionData">
+  <form #divisionForm="ngForm" id="divisionForm" name="divisionForm">
+    <div class="division-dashboard">
+      <app-division-card
+        *ngFor="let divisionItem of divisionData.divisionItems"
+        [divisionCardData]="divisionItem"
+        (saveNotes)="onSaveNotes($event)"
+      ></app-division-card>
+    </div>
+    <select
+      id="pageNumber"
+      name="pageNumber"
+      (change)="OnChangePageNumber($event.target.value)"
+    >
+      <option *ngFor="let pageItem of pagesList" value="{{ pageItem }}">
+        {{ pageItem }}
+      </option>
+    </select>
+  </form>
+</div>

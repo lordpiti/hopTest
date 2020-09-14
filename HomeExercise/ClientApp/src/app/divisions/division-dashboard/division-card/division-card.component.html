@@ -1,0 +1,15 @@
+<div class="divisionCard">
+  <div>Division Id: {{ divisionCardData.divisionId }}</div>
+  <div>Title: {{ divisionCardData.title }}</div>
+  <div>Ayes count: {{ divisionCardData.ayesCount }}</div>
+  <div>NoesCount: {{ divisionCardData.noesCount }}</div>
+  <div>Note: {{ divisionCardData.note }}</div>
+
+  <input
+    placeholder="DivisionNote"
+    name="divisionNote"
+    [(ngModel)]="divisionCardData.note"
+  />
+
+  <button (click)="saveNote()" cdkFocusInitial>Save</button>
+</div>

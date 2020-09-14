@@ -1,0 +1,89 @@
+<div class="welcome">
+  <h1>UK Parliament - Software Engineering</h1>
+  <p>Thanks for taking the time to do our recruitment home exercise</p>
+</div>
+
+<h2>Overview</h2>
+<p>
+  Create a paged list of cards showing information about recent divisions. Add a
+  text area within each division card allowing a user to save notes against the
+  division.
+</p>
+
+<h2>Instructions</h2>
+<p>
+  To complete this exercise please modify this solution and do the following:
+</p>
+<ul>
+  <li>
+    Add components to this application to display a paged list of cards. These
+    cards should display basic information about recent divisions
+  </li>
+  <li>
+    The frontend code in this solution should call the
+    <strong>DivisionsController</strong> which is configured as an API
+    controller
+  </li>
+  <li>
+    The <strong>DivisionsController</strong> should get information from the
+    <strong>IDivisionInfoService</strong>
+  </li>
+  <li>
+    The <strong>IDivisionInfoService</strong> should get information about
+    divisions from the Divisions API (documented below)
+  </li>
+  <li>
+    In the "Resources" section below two endpoints are documented to help you
+    get information on divisions
+  </li>
+  <li>
+    Displaying basic information on a division is all that is expected. Title,
+    Aye and No vote counts would be a good start.
+  </li>
+  <li>
+    You can use the styles here as inspiration
+    <a href="https://votes.parliament.uk">https://votes.parliament.uk</a> but
+    please do not just copy these styles exactly
+  </li>
+  <li>
+    At the bottom of each card you should add a text area and a save button
+    where users can save notes against a division
+  </li>
+  <li>
+    The storage for this has already been implemented for you. You just have to
+    add the endpoints into <strong>DivisionsController</strong> for your
+    frontend code to call. Please see <strong>IDivisionInfoService</strong> for
+    existing methods
+  </li>
+  <li>
+    It is expected that if a user saves notes against a division on page 1, then
+    switches to page 2, and then returns to page 1, their notes will be shown
+  </li>
+  <li>Please add tests where appropriate</li>
+</ul>
+
+<h2>Resources</h2>
+<ul>
+  <li>
+    The divisions API -
+    <a target="_blank" href="https://commonsvotes-api.parliament.uk/"
+      >https://commonsvotes-api.parliament.uk/</a
+    >
+  </li>
+  <li>
+    A call to discover the total number of divisions available -
+    <a
+      target="_blank"
+      href="https://commonsvotes-api.parliament.uk/data/divisions.json/searchTotalResults"
+      >https://commonsvotes-api.parliament.uk/data/divisions.json/searchTotalResults</a
+    >
+  </li>
+  <li>
+    A call to get the first 30 divisions available -
+    <a
+      target="_blank"
+      href="https://commonsvotes-api.parliament.uk/data/divisions.json/search?skip=0&take=20"
+      >https://commonsvotes-api.parliament.uk/data/divisions.json/search?skip=0&take=20</a
+    >
+  </li>
+</ul>

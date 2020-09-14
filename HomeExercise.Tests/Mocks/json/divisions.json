@@ -1,0 +1,278 @@
+[
+  {
+    "DivisionId": 834,
+    "Date": "2020-09-11T09:35:00",
+    "PublicationUpdated": "2020-09-11T10:09:06",
+    "Number": 92,
+    "IsDeferred": false,
+    "EVELType": "",
+    "EVELCountry": "",
+    "Title": "Motion to sit in private ",
+    "AyeCount": 0,
+    "NoCount": 76,
+    "DoubleMajorityAyeCount": null,
+    "DoubleMajorityNoCount": null,
+    "AyeTellers": [
+      {
+        "MemberId": 4384,
+        "Name": "Mike Wood",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Dudley South",
+        "ListAs": "Wood, Mike",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4474,
+        "Name": "Kevin Hollinrake",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Thirsk and Malton",
+        "ListAs": "Hollinrake, Kevin",
+        "ProxyName": null
+      }
+    ],
+    "NoTellers": [
+      {
+        "MemberId": 4032,
+        "Name": "Stuart Andrew",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Pudsey",
+        "ListAs": "Andrew, Stuart",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4497,
+        "Name": "Michael Tomlinson",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Mid Dorset and North Poole",
+        "ListAs": "Tomlinson, Michael",
+        "ProxyName": null
+      }
+    ],
+    "Ayes": [],
+    "Noes": [],
+    "FriendlyDescription": null,
+    "FriendlyTitle": null,
+    "NoVoteRecorded": [],
+    "RemoteVotingStart": null,
+    "RemoteVotingEnd": null
+  },
+  {
+    "DivisionId": 833,
+    "Date": "2020-09-09T18:59:00",
+    "PublicationUpdated": "2020-09-10T13:08:33",
+    "Number": 91,
+    "IsDeferred": false,
+    "EVELType": "",
+    "EVELCountry": "",
+    "Title": "Opposition Day: Role of Ministers in the awarding of qualifications",
+    "AyeCount": 237,
+    "NoCount": 327,
+    "DoubleMajorityAyeCount": null,
+    "DoubleMajorityNoCount": null,
+    "AyeTellers": [
+      {
+        "MemberId": 4378,
+        "Name": "Colleen Fletcher",
+        "Party": "Labour",
+        "SubParty": null,
+        "PartyColour": "ff0000",
+        "PartyAbbreviation": "Lab",
+        "MemberFrom": "Coventry North East",
+        "ListAs": "Fletcher, Colleen",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4456,
+        "Name": "Jeff Smith",
+        "Party": "Labour",
+        "SubParty": null,
+        "PartyColour": "ff0000",
+        "PartyAbbreviation": "Lab",
+        "MemberFrom": "Manchester, Withington",
+        "ListAs": "Smith, Jeff",
+        "ProxyName": null
+      }
+    ],
+    "NoTellers": [
+      {
+        "MemberId": 3992,
+        "Name": "James Morris",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Halesowen and Rowley Regis",
+        "ListAs": "Morris, James",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4447,
+        "Name": "Maggie Throup",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Erewash",
+        "ListAs": "Throup, Maggie",
+        "ProxyName": null
+      }
+    ],
+    "Ayes": [],
+    "Noes": [],
+    "FriendlyDescription": null,
+    "FriendlyTitle": null,
+    "NoVoteRecorded": [],
+    "RemoteVotingStart": null,
+    "RemoteVotingEnd": null
+  },
+  {
+    "DivisionId": 832,
+    "Date": "2020-09-09T16:16:00",
+    "PublicationUpdated": "2020-09-11T10:43:29",
+    "Number": 90,
+    "IsDeferred": false,
+    "EVELType": "",
+    "EVELCountry": "",
+    "Title": "Opposition Day: protection of jobs and businesses: Prime Minister's amendment",
+    "AyeCount": 320,
+    "NoCount": 9,
+    "DoubleMajorityAyeCount": null,
+    "DoubleMajorityNoCount": null,
+    "AyeTellers": [
+      {
+        "MemberId": 4447,
+        "Name": "Maggie Throup",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Erewash",
+        "ListAs": "Throup, Maggie",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 3992,
+        "Name": "James Morris",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Halesowen and Rowley Regis",
+        "ListAs": "Morris, James",
+        "ProxyName": null
+      }
+    ],
+    "NoTellers": [
+      {
+        "MemberId": 4053,
+        "Name": "Heather Wheeler",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "South Derbyshire",
+        "ListAs": "Wheeler, Mrs Heather",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 1562,
+        "Name": "Robert Goodwill",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Scarborough and Whitby",
+        "ListAs": "Goodwill, Mr Robert",
+        "ProxyName": null
+      }
+    ],
+    "Ayes": [],
+    "Noes": [],
+    "FriendlyDescription": null,
+    "FriendlyTitle": null,
+    "NoVoteRecorded": [],
+    "RemoteVotingStart": null,
+    "RemoteVotingEnd": null
+  },
+  {
+    "DivisionId": 831,
+    "Date": "2020-09-09T16:00:00",
+    "PublicationUpdated": "2020-09-11T10:43:46",
+    "Number": 89,
+    "IsDeferred": false,
+    "EVELType": "",
+    "EVELCountry": "",
+    "Title": "Opposition Day: protection of jobs and businesses",
+    "AyeCount": 249,
+    "NoCount": 329,
+    "DoubleMajorityAyeCount": null,
+    "DoubleMajorityNoCount": null,
+    "AyeTellers": [
+      {
+        "MemberId": 4378,
+        "Name": "Colleen Fletcher",
+        "Party": "Labour",
+        "SubParty": null,
+        "PartyColour": "ff0000",
+        "PartyAbbreviation": "Lab",
+        "MemberFrom": "Coventry North East",
+        "ListAs": "Fletcher, Colleen",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4456,
+        "Name": "Jeff Smith",
+        "Party": "Labour",
+        "SubParty": null,
+        "PartyColour": "ff0000",
+        "PartyAbbreviation": "Lab",
+        "MemberFrom": "Manchester, Withington",
+        "ListAs": "Smith, Jeff",
+        "ProxyName": null
+      }
+    ],
+    "NoTellers": [
+      {
+        "MemberId": 3992,
+        "Name": "James Morris",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Halesowen and Rowley Regis",
+        "ListAs": "Morris, James",
+        "ProxyName": null
+      },
+      {
+        "MemberId": 4447,
+        "Name": "Maggie Throup",
+        "Party": "Conservative",
+        "SubParty": null,
+        "PartyColour": "0000ff",
+        "PartyAbbreviation": "Con",
+        "MemberFrom": "Erewash",
+        "ListAs": "Throup, Maggie",
+        "ProxyName": null
+      }
+    ],
+    "Ayes": [],
+    "Noes": [],
+    "FriendlyDescription": null,
+    "FriendlyTitle": null,
+    "NoVoteRecorded": [],
+    "RemoteVotingStart": null,
+    "RemoteVotingEnd": null
+  }
+]
