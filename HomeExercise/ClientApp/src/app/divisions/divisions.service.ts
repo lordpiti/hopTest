@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { BaseService } from "../shared/services/base-http.service";
 import { DivisionData } from "./interfaces/division";
 import { NotesInfo } from "./interfaces/notesInfo";
@@ -14,9 +14,9 @@ export class DivisionsService extends BaseService {
     return this.currentDivisions;
   }
 
-  private currentDivisionsSubject: Subject<DivisionData> = new Subject<
+  private currentDivisionsSubject: BehaviorSubject<
     DivisionData
-  >();
+  > = new BehaviorSubject<DivisionData>(null);
 
   // private currentPageSubject: Subject<number> = new Subject<number>();
 

@@ -23,18 +23,11 @@ namespace HomeExercise.Proxy
 
         public async Task<IEnumerable<DivisionSearchResult>> GetAllDivisions(int skip, int take)
         {
-            var votesUri = new Uri(this.votesConfig.VotesApiBaseUri, $"search?skip={skip}&take={take}");
+            var divisionSearchUri = new Uri(this.votesConfig.VotesApiBaseUri, $"search?skip={skip}&take={take}");
 
-            try
-            {
-                var response = await this.Get<IEnumerable<DivisionSearchResult>>(votesUri);
+            var response = await this.Get<IEnumerable<DivisionSearchResult>>(divisionSearchUri);
 
-                return response;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return response;
         }
 
         public async Task<int> GetTotalResults()

@@ -14,7 +14,11 @@ import { HomeComponent } from "./home/home.component";
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: "", component: HomeComponent, pathMatch: "full" },
+      { path: "home", component: HomeComponent, pathMatch: "full" },
+      {
+        path: "",
+        loadChildren: "./divisions/divisions.module#DivisionsModule",
+      },
       {
         path: "divisions",
         loadChildren: "./divisions/divisions.module#DivisionsModule",
