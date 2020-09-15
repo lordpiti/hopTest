@@ -1,17 +1,16 @@
 ﻿using HomeExercise.Models.ContractApiModel;
 using HomeExercise.Proxy;
 using HomeExercise.Tests.Helpers;
-using Microsoft.VisualBasic.CompilerServices;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HomeExercise.Tests.Mocks
 {
     public class VotesApiClientMock : Mock<IVotesApiClient>
     {
+        private const string divisionApiResultJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
+
         public VotesApiClientMock(MockBehavior behavior = MockBehavior.Default)
             : base(behavior)
         {
@@ -19,9 +18,10 @@ namespace HomeExercise.Tests.Mocks
 
         public VotesApiClientMock GetAllDivisionsAndTotalResultsReturnsResponses()
         {
-            const string divisionsJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
-
-            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(divisionsJsonFile);
+            // To avoid writing manual code to create the result object, i provide a json file which
+            // is included as en embedded resource in the project and just deserialise it using a helper 
+            // method that i also implemented
+            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(divisionApiResultJsonFile);
 
             this.Setup(client => client.GetAllDivisions(It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(Task.FromResult(divisionSearchResult));
@@ -32,10 +32,7 @@ namespace HomeExercise.Tests.Mocks
 
         public VotesApiClientMock GetAllDivisionsReturnsValidResponseAndTotalResultsThrowsException()
         {
-            string votesApiJson = string.Empty;
-            const string productMetricsSetJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
-
-            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(productMetricsSetJsonFile);
+            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(divisionApiResultJsonFile);
 
             this.Setup(client => client.GetAllDivisions(It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(Task.FromResult(divisionSearchResult));

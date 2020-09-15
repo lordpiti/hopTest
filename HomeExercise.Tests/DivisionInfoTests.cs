@@ -14,6 +14,7 @@ namespace HomeExercise.Tests
 
         public DivisionInfoTests()
         {
+            // Used the Moq nuget package to create the mocked services to be injected in the tested class
             _divisionsService = new DivisionInfoService(new DivisionInfoStorageMock().GetStorageWithOneNote().Object,
                 new VotesApiClientMock().GetAllDivisionsAndTotalResultsReturnsResponses().Object);
         }
@@ -21,6 +22,9 @@ namespace HomeExercise.Tests
         [Fact]
         public async void GetDivisionPage_ReturnsData_WhenApiCallsAreSuccesful()
         {
+            // To avoid writing manual code to create the expected result object, i provide a json file which
+            // is included as en embedded resource in the project and just deserialise it using a helper 
+            // method that i also implemented
             const string expectedDivisionFile = "HomeExercise.Tests.Mocks.json.expectedDivision.json";
 
             var expectedResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionItem>>(expectedDivisionFile);
