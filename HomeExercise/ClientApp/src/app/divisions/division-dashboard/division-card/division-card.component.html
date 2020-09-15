@@ -5,11 +5,7 @@
   <div>NoesCount: {{ divisionCardData.noesCount }}</div>
   <div>Note: {{ divisionCardData.note }}</div>
 
-  <input
-    placeholder="DivisionNote"
-    name="divisionNote"
-    [(ngModel)]="divisionCardData.note"
-  />
+  <input placeholder="DivisionNote" name="divisionNote" [(ngModel)]="note" />
 
   <button (click)="saveNote()" cdkFocusInitial>Save</button>
 </div>

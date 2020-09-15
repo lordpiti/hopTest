@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DivisionsService } from "../divisions.service";
 import { DivisionData } from "../interfaces/division";
+import { NotesInfo } from "../interfaces/notesInfo";
 
 @Component({
   selector: "app-division-dashboard",
@@ -32,10 +33,14 @@ export class DivisionDashboardComponent implements OnInit {
     // );
   }
 
-  onSaveNotes(haha: any) {
+  onSaveNotes(data: NotesInfo) {
     this.divisionsService
-      .saveDivisionNotesData({ divisionId: haha.divisionId, notes: haha.notes })
-      .subscribe((data) => {
+      .saveDivisionNotesData({ divisionId: data.divisionId, notes: data.notes })
+      .subscribe(() => {
+        const itemToUpdate = this.divisionData.divisionItems.find(
+          (x) => x.divisionId === data.divisionId
+        );
+        itemToUpdate.note = data.notes;
         this.divisionsService.setCurrentDivisionData(this.divisionData);
       });
   }

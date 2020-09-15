@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { BaseService } from "../shared/services/base-http.service";
 import { DivisionData } from "./interfaces/division";
+import { NotesInfo } from "./interfaces/notesInfo";
 
 @Injectable()
 export class DivisionsService extends BaseService {
@@ -23,14 +24,14 @@ export class DivisionsService extends BaseService {
     super(httpNew);
   }
 
-  public getDivisionData(skip = 0, take = 20): Observable<DivisionData> {
-    const itemsToSkip = skip * take;
+  public getDivisionData(pageNumber = 1, take = 20): Observable<DivisionData> {
+    const itemsToSkip = (pageNumber - 1) * take;
     const url = `divisions/divisionpage?skip=${itemsToSkip}&take=${take}`;
 
     return this.get<DivisionData>(url);
   }
 
-  saveDivisionNotesData(notesData: { divisionId: number; notes: string }) {
+  saveDivisionNotesData(notesData: NotesInfo) {
     const url = "divisions/saveNotes";
 
     return this.post<any>(url, notesData);

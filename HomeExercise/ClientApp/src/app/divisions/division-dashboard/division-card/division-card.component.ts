@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from "@angular/core";
 import { DivisionItem } from "../../interfaces/divisionItem";
 
 @Component({
@@ -10,14 +17,18 @@ export class DivisionCardComponent implements OnInit {
   @Input() divisionCardData: DivisionItem;
   @Output() saveNotes: EventEmitter<any> = new EventEmitter();
 
+  public note: string;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.note = this.divisionCardData.note;
+  }
 
   saveNote() {
     this.saveNotes.emit({
       divisionId: this.divisionCardData.divisionId,
-      notes: this.divisionCardData.note,
+      notes: this.note,
     });
   }
 }
