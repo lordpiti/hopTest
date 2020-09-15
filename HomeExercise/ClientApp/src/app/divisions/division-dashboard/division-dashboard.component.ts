@@ -10,6 +10,7 @@ import { NotesInfo } from "../interfaces/notesInfo";
 })
 export class DivisionDashboardComponent implements OnInit {
   public divisionData: DivisionData;
+  public currentPage: number = 1;
 
   constructor(private divisionsService: DivisionsService) {}
 
@@ -47,6 +48,7 @@ export class DivisionDashboardComponent implements OnInit {
 
   OnChangePageNumber(pageNumber: number) {
     // this.divisionsService.setCurrentPage(pageNumber);
+    this.currentPage = pageNumber;
     this.divisionsService.getDivisionData(pageNumber, 20).subscribe((data) => {
       this.divisionsService.setCurrentDivisionData(data);
     });

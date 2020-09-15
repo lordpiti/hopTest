@@ -8,6 +8,7 @@ import { DivisionsService } from "../divisions.service";
 })
 export class DivisionPaginatorComponent implements OnInit {
   @Output() pageChange: EventEmitter<any> = new EventEmitter();
+  @Input() currentPage: number;
 
   public pagesList: number[] = [];
 
