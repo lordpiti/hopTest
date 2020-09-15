@@ -11,6 +11,7 @@ import { NotesInfo } from "../interfaces/notesInfo";
 export class DivisionDashboardComponent implements OnInit {
   public divisionData: DivisionData;
   public currentPage: number = 1;
+  public itemsPerPage: number = 10;
 
   constructor(private divisionsService: DivisionsService) {}
 
@@ -22,16 +23,11 @@ export class DivisionDashboardComponent implements OnInit {
       (err: any) => {}
     );
 
-    this.divisionsService.getDivisionData().subscribe((data) => {
-      this.divisionsService.setCurrentDivisionData(data);
-    });
-
-    // this.divisionsService.getCurrentPage().subscribe(
-    //   (data) => {
-    //     this.pageNumber = data;
-    //   },
-    //   (err: any) => {}
-    // );
+    this.divisionsService
+      .getDivisionData(this.currentPage, this.itemsPerPage)
+      .subscribe((data) => {
+        this.divisionsService.setCurrentDivisionData(data);
+      });
   }
 
   onSaveNotes(data: NotesInfo) {
@@ -47,10 +43,26 @@ export class DivisionDashboardComponent implements OnInit {
   }
 
   OnChangePageNumber(pageNumber: number) {
-    // this.divisionsService.setCurrentPage(pageNumber);
     this.currentPage = pageNumber;
-    this.divisionsService.getDivisionData(pageNumber, 20).subscribe((data) => {
-      this.divisionsService.setCurrentDivisionData(data);
-    });
+    this.divisionsService
+      .getDivisionData(pageNumber, this.itemsPerPage)
+      .subscribe((data) => {
+        this.divisionsService.setCurrentDivisionData(data);
+      });
+  }
+
+  OnChangeItemsPerPage(itemsPerPage: number) {
+    this.itemsPerPage = itemsPerPage;
+    const numberOfPages = Math.ceil(
+      this.divisionsService.getCurrentDivisions().numberOfItems / itemsPerPage
+    );
+    if (this.currentPage > numberOfPages) {
+      this.currentPage = numberOfPages;
+    }
+    this.divisionsService
+      .getDivisionData(this.currentPage, itemsPerPage)
+      .subscribe((data) => {
+        this.divisionsService.setCurrentDivisionData(data);
+      });
   }
 }

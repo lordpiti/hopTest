@@ -1,8 +1,13 @@
-.paginatorItem {
-  padding: 8px;
+.paginator {
   text-align: center;
-  cursor: pointer;
+  margin-top: 20px;
+  .paginatorItem {
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+  }
 }
+
 .selectedPage {
   background-color: darkblue;
   color: white;

@@ -8,7 +8,6 @@ import { NotesInfo } from "./interfaces/notesInfo";
 @Injectable()
 export class DivisionsService extends BaseService {
   private currentDivisions: DivisionData;
-  // public currentPage: number;
 
   public getCurrentDivisions() {
     return this.currentDivisions;
@@ -18,13 +17,11 @@ export class DivisionsService extends BaseService {
     DivisionData
   > = new BehaviorSubject<DivisionData>(null);
 
-  // private currentPageSubject: Subject<number> = new Subject<number>();
-
   constructor(public httpNew: HttpClient) {
     super(httpNew);
   }
 
-  public getDivisionData(pageNumber = 1, take = 20): Observable<DivisionData> {
+  public getDivisionData(pageNumber = 1, take = 10): Observable<DivisionData> {
     const itemsToSkip = (pageNumber - 1) * take;
     const url = `divisions/divisionpage?skip=${itemsToSkip}&take=${take}`;
 
@@ -37,23 +34,13 @@ export class DivisionsService extends BaseService {
     return this.post<any>(url, notesData);
   }
 
+  public getCurrentDivisionData(): Observable<DivisionData> {
+    return this.currentDivisionsSubject.asObservable();
+  }
+
   public setCurrentDivisionData(_data: DivisionData) {
     this.currentDivisions = _data;
 
     this.currentDivisionsSubject.next(_data);
   }
-
-  public getCurrentDivisionData(): Observable<DivisionData> {
-    return this.currentDivisionsSubject.asObservable();
-  }
-
-  // public getCurrentPage(): Observable<number> {
-  //   return this.currentPageSubject.asObservable();
-  // }
-
-  // public setCurrentPage(_pageNumber: number) {
-  //   this.currentPage = _pageNumber;
-
-  //   this.currentPageSubject.next(_pageNumber);
-  // }
 }
