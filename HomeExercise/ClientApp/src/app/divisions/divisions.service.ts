@@ -6,8 +6,12 @@ import { DivisionData } from "./interfaces/division";
 
 @Injectable()
 export class DivisionsService extends BaseService {
-  public currentDivisions: DivisionData;
+  private currentDivisions: DivisionData;
   // public currentPage: number;
+
+  public getCurrentDivisions() {
+    return this.currentDivisions;
+  }
 
   private currentDivisionsSubject: Subject<DivisionData> = new Subject<
     DivisionData

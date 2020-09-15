@@ -9,19 +9,13 @@ import { DivisionData } from "../interfaces/division";
 })
 export class DivisionDashboardComponent implements OnInit {
   public divisionData: DivisionData;
-  public pageNumber: number;
-  public pagesList: number[] = [];
 
   constructor(private divisionsService: DivisionsService) {}
 
   ngOnInit() {
     this.divisionsService.getCurrentDivisionData().subscribe(
       (data) => {
-        this.pagesList = [];
         this.divisionData = data;
-        for (var i = 1; i < data.numberOfItems / 20; i++) {
-          this.pagesList.push(i);
-        }
       },
       (err: any) => {}
     );
@@ -46,7 +40,7 @@ export class DivisionDashboardComponent implements OnInit {
       });
   }
 
-  OnChangePageNumber(pageNumber: any) {
+  OnChangePageNumber(pageNumber: number) {
     // this.divisionsService.setCurrentPage(pageNumber);
     this.divisionsService.getDivisionData(pageNumber, 20).subscribe((data) => {
       this.divisionsService.setCurrentDivisionData(data);

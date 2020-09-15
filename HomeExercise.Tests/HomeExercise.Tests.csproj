@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="Mocks\json\divisions.json" />
+    <None Remove="Mocks\json\expectedDivision.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Mocks\json\divisions.json" />
+    <EmbeddedResource Include="Mocks\json\expectedDivision.json" />
   </ItemGroup>
 
   <ItemGroup>

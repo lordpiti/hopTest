@@ -16,6 +16,11 @@ namespace HomeExercise.Services
             _votesApiClient = votesApiClient;
         }
 
+        public DivisionInfoService(IDivisionInfoStorage storage)
+        {
+            _storage = storage;
+        }
+
         public async Task<DivisionInformation> GetDivisionPage(int skip, int take)
         {
             var divisionResponseItems = await _votesApiClient.GetAllDivisions(skip, take);

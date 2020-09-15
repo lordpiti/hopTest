@@ -9,14 +9,8 @@
         (saveNotes)="onSaveNotes($event)"
       ></app-division-card>
     </div>
-    <select
-      id="pageNumber"
-      name="pageNumber"
-      (change)="OnChangePageNumber($event.target.value)"
-    >
-      <option *ngFor="let pageItem of pagesList" value="{{ pageItem }}">
-        {{ pageItem }}
-      </option>
-    </select>
+    <app-division-paginator
+      (pageChange)="OnChangePageNumber($event)"
+    ></app-division-paginator>
   </form>
 </div>

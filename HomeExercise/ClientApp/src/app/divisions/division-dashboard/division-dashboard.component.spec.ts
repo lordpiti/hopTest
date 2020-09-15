@@ -3,6 +3,7 @@ import { HttpClient, HttpHandler } from "@angular/common/http";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from "src/app/shared/shared.module";
+import { DivisionPaginatorComponent } from "../division-paginator/division-paginator.component";
 import { DivisionsService } from "../divisions.service";
 import { DivisionCardComponent } from "./division-card/division-card.component";
 
@@ -14,7 +15,11 @@ describe("DivisionDashboardComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DivisionDashboardComponent, DivisionCardComponent],
+      declarations: [
+        DivisionDashboardComponent,
+        DivisionCardComponent,
+        DivisionPaginatorComponent,
+      ],
       imports: [CommonModule, FormsModule, SharedModule],
       providers: [HttpHandler, HttpClient, DivisionsService],
     }).compileComponents();

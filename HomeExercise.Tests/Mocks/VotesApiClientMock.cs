@@ -19,10 +19,9 @@ namespace HomeExercise.Tests.Mocks
 
         public VotesApiClientMock GetAllDivisionsAndTotalResultsReturnsResponses()
         {
-            string votesApiJson = string.Empty;
-            const string productMetricsSetJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
+            const string divisionsJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
 
-            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(productMetricsSetJsonFile);
+            var divisionSearchResult = TestHelpers.ParseJsonFromEmbeddedResource<IEnumerable<DivisionSearchResult>>(divisionsJsonFile);
 
             this.Setup(client => client.GetAllDivisions(It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(Task.FromResult(divisionSearchResult));

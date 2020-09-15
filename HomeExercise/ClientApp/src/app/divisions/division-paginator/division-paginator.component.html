@@ -1,0 +1,18 @@
+<select
+  id="pageNumber"
+  name="pageNumber"
+  (change)="OnChangePageNumber($event.target.value)"
+>
+  <option *ngFor="let pageItem of pagesList" value="{{ pageItem }}">
+    {{ pageItem }}
+  </option>
+</select>
+
+<div>
+  <span
+    *ngFor="let pageNumber of pagesList"
+    (click)="OnChangePageNumber(pageNumber)"
+  >
+    {{ pageNumber }}
+  </span>
+</div>

@@ -5,6 +5,7 @@ import { DivisionCardComponent } from "./division-dashboard/division-card/divisi
 import { RouterModule, Routes } from "@angular/router";
 import { DivisionsService } from "./divisions.service";
 import { FormsModule } from "@angular/forms";
+import { DivisionPaginatorComponent } from './division-paginator/division-paginator.component';
 
 const divisionRoutes: Routes = [
   { path: "", component: DivisionDashboardComponent },
@@ -12,7 +13,7 @@ const divisionRoutes: Routes = [
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(divisionRoutes), FormsModule],
-  declarations: [DivisionDashboardComponent, DivisionCardComponent],
+  declarations: [DivisionDashboardComponent, DivisionCardComponent, DivisionPaginatorComponent],
   providers: [DivisionsService],
 })
 export class DivisionsModule {}
