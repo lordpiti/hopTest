@@ -1,11 +1,28 @@
 <div class="divisionCard">
-  <div>Division Id: {{ divisionCardData.divisionId }}</div>
-  <div>Title: {{ divisionCardData.title }}</div>
-  <div>Ayes count: {{ divisionCardData.ayesCount }}</div>
-  <div>NoesCount: {{ divisionCardData.noesCount }}</div>
-  <div>Note: {{ divisionCardData.note }}</div>
-
-  <input placeholder="DivisionNote" name="divisionNote" [(ngModel)]="note" />
-
-  <button (click)="saveNote()" cdkFocusInitial>Save</button>
+  <div class="header">{{ divisionCardData.title }}</div>
+  <div class="content">
+    <div class="divisionResults">
+      <div class="ayes">Ayes<br />{{ divisionCardData.ayesCount }}</div>
+      <div class="noes">Noes<br />{{ divisionCardData.noesCount }}</div>
+    </div>
+    <!-- <div>Division Id: {{ divisionCardData.divisionId }}</div>
+    <div>Ayes count: {{ divisionCardData.ayesCount }}</div>
+    <div>NoesCount: {{ divisionCardData.noesCount }}</div> -->
+    <div class="savedNote" *ngIf="divisionCardData.note !== ''">
+      Note: <span class="italicText">{{ divisionCardData.note }}</span>
+    </div>
+  </div>
+  <div class="footer">
+    <div>
+      Enter notes:<br />
+      <textarea
+        name="divisionNote"
+        [(ngModel)]="note"
+        style="resize: none"
+      ></textarea>
+    </div>
+    <div>
+      <button (click)="saveNote()" cdkFocusInitial>Save</button>
+    </div>
+  </div>
 </div>
