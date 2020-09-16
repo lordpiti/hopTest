@@ -55,6 +55,9 @@
       padding: 8px 16px;
       cursor: pointer;
       border-radius: 3px;
+      &:hover {
+        background-color: rgba(43, 87, 171, 0.2);
+      }
     }
   }
 }

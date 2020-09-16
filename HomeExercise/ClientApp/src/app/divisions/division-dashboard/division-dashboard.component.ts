@@ -28,7 +28,10 @@ export class DivisionDashboardComponent implements OnInit {
           this.divisionsService.setCurrentDivisionData(data);
         },
         (err) => {
-          // Redirect to the home component
+          // Redirect to the home component when erroring
+          // Ideally an error page would be created or an error message displayed on
+          // screen but nothing is specified in the requirements so it stays like
+          // this for the moment
           this.router.navigate(["/home"]);
         }
       );
