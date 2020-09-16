@@ -1,23 +1,46 @@
-<div class="paginator">
-  <span
-    *ngFor="let pageNumber of pagesList"
-    (click)="OnChangePageNumber(pageNumber)"
-    [ngClass]="{
-      selectedPage: pageNumber === currentPage,
-      paginatorItem: true
-    }"
-  >
-    {{ pageNumber }}
-  </span>
-</div>
-<div>
-  <select
-    id="itemsPerPage"
-    name="itemsPerPage"
-    (change)="OnChangeItemsPerPage($event.target.value)"
-  >
-    <option *ngFor="let item of itemsPerPageList" value="{{ item }}">
-      {{ item }}
-    </option>
-  </select>
+<div class="paginator-container">
+  <div class="items-per-page-info">
+    Items per page:
+    <select
+      id="itemsPerPage"
+      name="itemsPerPage"
+      (change)="OnChangeItemsPerPage($event.target.value)"
+    >
+      <option *ngFor="let item of itemsPerPageList" value="{{ item }}">
+        {{ item }}
+      </option>
+    </select>
+    <span class="displayed-items">
+      {{ getStartItemIndex() }}-{{ getEndItemIndex() }}
+      of
+      {{ numberOfItems }}
+    </span>
+  </div>
+  <div class="paginator">
+    <ng-container *ngIf="currentPage > 1">
+      <span class="paginatorItem" (click)="OnChangePageNumber(1)">|<</span>
+      <span class="paginatorItem" (click)="OnChangePageNumber(currentPage - 1)"
+        ><</span
+      >
+    </ng-container>
+    <span
+      *ngFor="let pageNumber of pagesList"
+      (click)="OnChangePageNumber(pageNumber)"
+      [ngClass]="{
+        selectedPage: pageNumber === currentPage,
+        paginatorItem: true
+      }"
+    >
+      {{ pageNumber }}
+    </span>
+    <ng-container *ngIf="currentPage < pagesList.length">
+      <span class="paginatorItem" (click)="OnChangePageNumber(currentPage + 1)"
+        >></span
+      >
+      <span class="paginatorItem" (click)="OnChangePageNumber(pagesList.length)"
+        >>|</span
+      >
+    </ng-container>
+  </div>
+  <div></div>
 </div>

@@ -14,6 +14,7 @@ export class DivisionPaginatorComponent implements OnInit {
 
   public pagesList: number[] = [];
   public itemsPerPageList = [10, 25];
+  public numberOfItems = 0;
 
   constructor(public divisionsService: DivisionsService) {}
 
@@ -39,8 +40,19 @@ export class DivisionPaginatorComponent implements OnInit {
     this.itemsPerPageChange.emit(itemsPerPage);
   }
 
+  getStartItemIndex() {
+    return (this.currentPage - 1) * this.itemsPerPage + 1;
+  }
+
+  getEndItemIndex() {
+    return this.currentPage * this.itemsPerPage > this.numberOfItems
+      ? this.numberOfItems
+      : this.currentPage * this.itemsPerPage;
+  }
+
   private createPaginator(numberOfItems: number, itemsPerPage: number) {
     this.pagesList = [];
+    this.numberOfItems = numberOfItems;
     const numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
     for (var i = 1; i <= numberOfPages; i++) {
       this.pagesList.push(i);

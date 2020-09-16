@@ -1,14 +1,26 @@
-.paginator {
-  text-align: center;
-  margin-top: 20px;
-  .paginatorItem {
-    padding: 8px;
-    text-align: center;
-    cursor: pointer;
+.paginator-container {
+  margin-top: 30px;
+  .items-per-page-info {
+    text-align: right;
+    .displayed-items {
+      margin-left: 30px;
+    }
   }
-}
+  .paginator {
+    margin-top: 20px;
+    text-align: center;
+    .paginatorItem {
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        background-color: lightblue;
+      }
+    }
+  }
 
-.selectedPage {
-  background-color: darkblue;
-  color: white;
+  .selectedPage {
+    background-color: darkblue;
+    color: white;
+  }
 }

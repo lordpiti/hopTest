@@ -2,6 +2,12 @@
 
 <div *ngIf="divisionData">
   <form #divisionForm="ngForm" id="divisionForm" name="divisionForm">
+    <app-division-paginator
+      (pageChange)="OnChangePageNumber($event)"
+      (itemsPerPageChange)="OnChangeItemsPerPage($event)"
+      [currentPage]="currentPage"
+      [itemsPerPage]="itemsPerPage"
+    ></app-division-paginator>
     <div class="division-dashboard">
       <app-division-card
         *ngFor="let divisionItem of divisionData.divisionItems"
@@ -9,11 +15,5 @@
         (saveNotes)="onSaveNotes($event)"
       ></app-division-card>
     </div>
-    <app-division-paginator
-      (pageChange)="OnChangePageNumber($event)"
-      (itemsPerPageChange)="OnChangeItemsPerPage($event)"
-      [currentPage]="currentPage"
-      [itemsPerPage]="itemsPerPage"
-    ></app-division-paginator>
   </form>
 </div>
