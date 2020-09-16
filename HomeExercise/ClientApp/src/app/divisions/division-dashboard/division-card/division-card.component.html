@@ -2,12 +2,17 @@
   <div class="header">{{ divisionCardData.title }}</div>
   <div class="content">
     <div class="divisionResults">
-      <div class="ayes">Ayes<br />{{ divisionCardData.ayesCount }}</div>
-      <div class="noes">Noes<br />{{ divisionCardData.noesCount }}</div>
+      <div class="ayes results">
+        <div>Ayes</div>
+        <div><img src="assets/images/aye.svg" /></div>
+        <div class="count">{{ divisionCardData.ayesCount }}</div>
+      </div>
+      <div class="noes results">
+        <div>Noes</div>
+        <div><img src="assets/images/nay.svg" /></div>
+        <div class="count">{{ divisionCardData.noesCount }}</div>
+      </div>
     </div>
-    <!-- <div>Division Id: {{ divisionCardData.divisionId }}</div>
-    <div>Ayes count: {{ divisionCardData.ayesCount }}</div>
-    <div>NoesCount: {{ divisionCardData.noesCount }}</div> -->
     <div class="savedNote" *ngIf="divisionCardData.note !== ''">
       Note: <span class="italicText">{{ divisionCardData.note }}</span>
     </div>
@@ -22,7 +27,7 @@
       ></textarea>
     </div>
     <div>
-      <button (click)="saveNote()" cdkFocusInitial>Save</button>
+      <span (click)="saveNote()" cdkFocusInitial>Save</span>
     </div>
   </div>
 </div>

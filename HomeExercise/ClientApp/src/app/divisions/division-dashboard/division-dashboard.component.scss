@@ -1,6 +1,12 @@
-.pageTitle {
+.page-header {
   font-size: 36px;
-  text-align: center;
+  text-align: left;
+  background-color: #373151;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .division-dashboard {

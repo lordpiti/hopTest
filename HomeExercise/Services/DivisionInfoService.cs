@@ -31,7 +31,7 @@ namespace HomeExercise.Services
                 DivisionId = x.DivisionId,
                 NoesCount = x.NoCount,
                 Title = x.Title,
-                Note = NotesForDivisionExist(x.DivisionId)?GetNotesForDivision(x.DivisionId) : string.Empty
+                Note = GetNotesForDivision(x.DivisionId)
             });
 
             var divisionCount = await _votesApiClient.GetTotalResults();

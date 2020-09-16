@@ -1,6 +1,7 @@
 .divisionCard {
   border-style: solid;
   border-color: black;
+  border-width: 1px;
   width: 300px;
   min-height: 300px;
   margin-top: 50px;
@@ -11,17 +12,28 @@
   .header {
     font-size: 20px;
     padding: 5px;
-    background-color: darkblue;
+    background-color: #2b57ab;
     color: white;
+    font-family: National, Arial, Helvetica, sans-serif;
   }
   .content {
     .divisionResults {
+      background-color: white;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      .ayes,
-      .noes {
+      .results {
         padding: 20px;
+        &.ayes,
+        &.noes {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          .count {
+            font-weight: bold;
+            font-size: 20px;
+          }
+        }
       }
     }
     .savedNote {
@@ -37,5 +49,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    & span {
+      background-color: #2b57ab;
+      color: white;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
   }
 }

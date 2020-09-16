@@ -14,7 +14,7 @@ export class DivisionDashboardComponent implements OnInit {
   public currentPage: number = 1;
   public itemsPerPage: number = 10;
 
-  constructor(private divisionsService: DivisionsService) {}
+  constructor(public divisionsService: DivisionsService) {}
 
   ngOnInit() {
     this.divisionsService
@@ -27,16 +27,14 @@ export class DivisionDashboardComponent implements OnInit {
   }
 
   onSaveNotes(data: NotesInfo) {
-    this.divisionsService
-      .saveDivisionNotesData({ divisionId: data.divisionId, notes: data.notes })
-      .subscribe(() => {
-        const currentData = this.divisionsService.getCurrentDivisions();
-        const itemToUpdate = currentData.divisionItems.find(
-          (x) => x.divisionId === data.divisionId
-        );
-        itemToUpdate.note = data.notes;
-        this.divisionsService.setCurrentDivisionData(currentData);
-      });
+    this.divisionsService.saveDivisionNotesData(data).subscribe(() => {
+      const currentData = this.divisionsService.getCurrentDivisions();
+      const itemToUpdate = currentData.divisionItems.find(
+        (x) => x.divisionId === data.divisionId
+      );
+      itemToUpdate.note = data.notes;
+      this.divisionsService.setCurrentDivisionData(currentData);
+    });
   }
 
   OnChangePageNumber(pageNumber: number) {
