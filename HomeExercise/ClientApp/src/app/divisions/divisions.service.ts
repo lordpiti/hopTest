@@ -31,7 +31,7 @@ export class DivisionsService extends BaseService {
   saveDivisionNotesData(notesData: NotesInfo) {
     const url = "divisions/saveNotes";
 
-    return this.post<any>(url, notesData);
+    return this.post<NotesInfo>(url, notesData);
   }
 
   public getCurrentDivisionData(): Observable<DivisionData> {

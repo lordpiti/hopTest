@@ -14,8 +14,8 @@ import {
   styleUrls: ["./division-paginator.component.scss"],
 })
 export class DivisionPaginatorComponent implements OnInit, OnChanges {
-  @Output() pageChange: EventEmitter<any> = new EventEmitter();
-  @Output() itemsPerPageChange: EventEmitter<any> = new EventEmitter();
+  @Output() pageChange: EventEmitter<number> = new EventEmitter();
+  @Output() itemsPerPageChange: EventEmitter<number> = new EventEmitter();
   @Input() currentPage: number;
   @Input() itemsPerPage: number;
   @Input() numberOfItems: number;

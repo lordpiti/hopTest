@@ -7,6 +7,7 @@ import {
   SimpleChanges,
 } from "@angular/core";
 import { DivisionItem } from "../../interfaces/divisionItem";
+import { NotesInfo } from "../../interfaces/notesInfo";
 
 @Component({
   selector: "app-division-card",
@@ -15,7 +16,7 @@ import { DivisionItem } from "../../interfaces/divisionItem";
 })
 export class DivisionCardComponent implements OnInit {
   @Input() divisionCardData: DivisionItem;
-  @Output() saveNotes: EventEmitter<any> = new EventEmitter();
+  @Output() saveNotes: EventEmitter<NotesInfo> = new EventEmitter();
 
   public note: string;
 
