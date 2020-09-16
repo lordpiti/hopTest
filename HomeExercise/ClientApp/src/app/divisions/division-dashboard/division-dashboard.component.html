@@ -1,6 +1,6 @@
 <div class="pageTitle">Parliament recent divisions</div>
 
-<div *ngIf="divisionData">
+<div *ngIf="divisionData$ | async as divisionData">
   <form #divisionForm="ngForm" id="divisionForm" name="divisionForm">
     <app-division-paginator
       (pageChange)="OnChangePageNumber($event)"

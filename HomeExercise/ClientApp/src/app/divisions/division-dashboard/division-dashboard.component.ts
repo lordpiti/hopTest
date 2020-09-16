@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 import { DivisionsService } from "../divisions.service";
 import { DivisionData } from "../interfaces/division";
 import { NotesInfo } from "../interfaces/notesInfo";
@@ -9,36 +10,32 @@ import { NotesInfo } from "../interfaces/notesInfo";
   styleUrls: ["./division-dashboard.component.scss"],
 })
 export class DivisionDashboardComponent implements OnInit {
-  public divisionData: DivisionData;
+  public divisionData$: Observable<DivisionData>;
   public currentPage: number = 1;
   public itemsPerPage: number = 10;
 
   constructor(private divisionsService: DivisionsService) {}
 
   ngOnInit() {
-    this.divisionsService.getCurrentDivisionData().subscribe(
-      (data) => {
-        this.divisionData = data;
-      },
-      (err: any) => {}
-    );
-
     this.divisionsService
       .getDivisionData(this.currentPage, this.itemsPerPage)
       .subscribe((data) => {
         this.divisionsService.setCurrentDivisionData(data);
       });
+
+    this.divisionData$ = this.divisionsService.getCurrentDivisionData();
   }
 
   onSaveNotes(data: NotesInfo) {
     this.divisionsService
       .saveDivisionNotesData({ divisionId: data.divisionId, notes: data.notes })
       .subscribe(() => {
-        const itemToUpdate = this.divisionData.divisionItems.find(
+        const currentData = this.divisionsService.getCurrentDivisions();
+        const itemToUpdate = currentData.divisionItems.find(
           (x) => x.divisionId === data.divisionId
         );
         itemToUpdate.note = data.notes;
-        this.divisionsService.setCurrentDivisionData(this.divisionData);
+        this.divisionsService.setCurrentDivisionData(currentData);
       });
   }
 
