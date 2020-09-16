@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HomeExercise.Tests.Mocks
-{t
+{
     public class VotesApiClientMock : Mock<IVotesApiClient>
     {
         private const string divisionApiResultJsonFile = "HomeExercise.Tests.Mocks.json.divisions.json";
