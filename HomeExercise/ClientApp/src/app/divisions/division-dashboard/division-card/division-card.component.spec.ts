@@ -34,4 +34,17 @@ describe("DivisionCardComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  describe("saveNote", () => {
+    it("should emit when saving a note for a division", () => {
+      spyOn(component.saveNotes, "emit");
+      component.note = "test1";
+      component.saveNote();
+      const note = {
+        divisionId: 1,
+        notes: "test1",
+      };
+      expect(component.saveNotes.emit).toHaveBeenCalledWith(note);
+    });
+  });
 });
