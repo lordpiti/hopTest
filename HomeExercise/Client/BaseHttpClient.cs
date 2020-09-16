@@ -8,6 +8,11 @@ using Newtonsoft.Json;
 
 namespace HomeExercise.Proxy
 {
+    /// <summary>
+    /// Abstract class to be used as a base for any http client implementation
+    /// Provides an easy method for the GET calls. Could be extended for other
+    /// HTTP methods in the future if needed
+    /// </summary>
     public abstract class BaseHttpClient
     {
         public const string JsonMediaType = "application/json";

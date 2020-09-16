@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace HomeExercise.Proxy.Configuration
 {
+    /// <summary>
+    /// Configuration class to be used with the VotesApiClient
+    /// It gets the settings from the config file and they are injected
+    /// via the constructor
+    /// </summary>
     public class VotesConfiguration
     {
 

@@ -61,6 +61,9 @@ namespace HomeExercise.Services
 
         public string GetNotesForDivision(int divisionId)
         {
+            // Note: this method could be optimised by using TryGet over the dictionary maybe
+            // to avoid accessing the dictionary twice (one for the check and other to grab the data)
+            // but it was provided with this implementation so I havent touched it
             if (!NotesForDivisionExist(divisionId))
             {
                 return null;

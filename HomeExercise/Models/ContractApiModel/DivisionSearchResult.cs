@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 namespace HomeExercise.Models.ContractApiModel
 {
+    /// <summary>
+    /// This model represents what is obtained from the external API
+    /// Most of the properties are not used but i still included them
+    /// just in case
+    /// </summary>
     public class DivisionSearchResult
     {
         public int DivisionId { get; set; }
@@ -34,7 +39,9 @@ namespace HomeExercise.Models.ContractApiModel
         public string FriendlyDescription { get; set; }
 
         public string FriendlyTitle { get; set; }
+
         public string RemoteVotingStart { get; set; }
+
         public string RemoteVotingEnd { get; set; }
     }
 }

@@ -13,6 +13,13 @@ namespace HomeExercise.Proxy
     {
         private readonly VotesConfiguration votesConfig;
 
+        /// <summary>
+        /// Client for the external API
+        /// Extends the base http base client class and uses its methods
+        /// to make the calls
+        /// </summary>
+        /// <param name="httpClientFactory"></param>
+        /// <param name="votesConfiguration"></param>
         public VotesApiClient(
             IHttpClientFactory httpClientFactory,
             VotesConfiguration votesConfiguration)
