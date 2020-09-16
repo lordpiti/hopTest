@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { DivisionsService } from "../divisions.service";
 import { DivisionData } from "../interfaces/division";
 import { NotesInfo } from "../interfaces/notesInfo";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-division-dashboard",
@@ -14,36 +15,57 @@ export class DivisionDashboardComponent implements OnInit {
   public currentPage: number = 1;
   public itemsPerPage: number = 10;
 
-  constructor(public divisionsService: DivisionsService) {}
+  constructor(
+    public divisionsService: DivisionsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.divisionsService
       .getDivisionData(this.currentPage, this.itemsPerPage)
-      .subscribe((data) => {
-        this.divisionsService.setCurrentDivisionData(data);
-      });
+      .subscribe(
+        (data) => {
+          this.divisionsService.setCurrentDivisionData(data);
+        },
+        (err) => {
+          // Redirect to the home component
+          this.router.navigate(["/home"]);
+        }
+      );
 
     this.divisionData$ = this.divisionsService.getCurrentDivisionData();
   }
 
   onSaveNotes(data: NotesInfo) {
-    this.divisionsService.saveDivisionNotesData(data).subscribe(() => {
-      const currentData = this.divisionsService.getCurrentDivisions();
-      const itemToUpdate = currentData.divisionItems.find(
-        (x) => x.divisionId === data.divisionId
-      );
-      itemToUpdate.note = data.notes;
-      this.divisionsService.setCurrentDivisionData(currentData);
-    });
+    this.divisionsService.saveDivisionNotesData(data).subscribe(
+      () => {
+        const currentData = this.divisionsService.getCurrentDivisions();
+        const itemToUpdate = currentData.divisionItems.find(
+          (x) => x.divisionId === data.divisionId
+        );
+        itemToUpdate.note = data.notes;
+        this.divisionsService.setCurrentDivisionData(currentData);
+      },
+      (err) => {
+        // Redirect to the home component
+        this.router.navigate(["/home"]);
+      }
+    );
   }
 
   OnChangePageNumber(pageNumber: number) {
     this.currentPage = pageNumber;
     this.divisionsService
       .getDivisionData(pageNumber, this.itemsPerPage)
-      .subscribe((data) => {
-        this.divisionsService.setCurrentDivisionData(data);
-      });
+      .subscribe(
+        (data) => {
+          this.divisionsService.setCurrentDivisionData(data);
+        },
+        (err) => {
+          // Redirect to the home component
+          this.router.navigate(["/home"]);
+        }
+      );
   }
 
   OnChangeItemsPerPage(itemsPerPage: number) {
@@ -56,8 +78,14 @@ export class DivisionDashboardComponent implements OnInit {
     }
     this.divisionsService
       .getDivisionData(this.currentPage, itemsPerPage)
-      .subscribe((data) => {
-        this.divisionsService.setCurrentDivisionData(data);
-      });
+      .subscribe(
+        (data) => {
+          this.divisionsService.setCurrentDivisionData(data);
+        },
+        (err) => {
+          // Redirect to the home component
+          this.router.navigate(["/home"]);
+        }
+      );
   }
 }

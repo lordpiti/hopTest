@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClient, HttpHandler } from "@angular/common/http";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 import { of } from "rxjs";
 import { SharedModule } from "src/app/shared/shared.module";
 import { DivisionPaginatorComponent } from "../division-paginator/division-paginator.component";
@@ -15,6 +16,9 @@ import { DivisionDashboardComponent } from "./division-dashboard.component";
 describe("DivisionDashboardComponent", () => {
   let component: DivisionDashboardComponent;
   let fixture: ComponentFixture<DivisionDashboardComponent>;
+  let mockRouter = {
+    navigate: jasmine.createSpy("navigate"),
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +28,12 @@ describe("DivisionDashboardComponent", () => {
         DivisionPaginatorComponent,
       ],
       imports: [CommonModule, FormsModule, SharedModule],
-      providers: [HttpHandler, HttpClient, DivisionsService],
+      providers: [
+        HttpHandler,
+        HttpClient,
+        DivisionsService,
+        { provide: Router, useValue: mockRouter },
+      ],
     }).compileComponents();
   }));
 
