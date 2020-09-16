@@ -8,7 +8,7 @@ export class BaseService {
   protected _apiUrl: string;
 
   constructor(public httpNew: HttpClient) {
-    this._apiUrl = "https://localhost:5001/api/"; //environment.api_url;
+    this._apiUrl = environment.api_url;
   }
 
   public post<T>(url: string, data: any): Observable<T> {

@@ -1,35 +1,35 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { DivisionsService } from "../divisions.service";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from "@angular/core";
 
 @Component({
   selector: "app-division-paginator",
   templateUrl: "./division-paginator.component.html",
   styleUrls: ["./division-paginator.component.scss"],
 })
-export class DivisionPaginatorComponent implements OnInit {
+export class DivisionPaginatorComponent implements OnInit, OnChanges {
   @Output() pageChange: EventEmitter<any> = new EventEmitter();
   @Output() itemsPerPageChange: EventEmitter<any> = new EventEmitter();
   @Input() currentPage: number;
   @Input() itemsPerPage: number;
+  @Input() numberOfItems: number;
 
   public pagesList: number[] = [];
   public itemsPerPageList = [10, 25];
-  public numberOfItems = 0;
-
-  constructor(public divisionsService: DivisionsService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.createPaginator(
-      this.divisionsService.getCurrentDivisions().numberOfItems,
-      this.itemsPerPage
-    );
-    // // Needed as the division data can change and number of pages as well
-    this.divisionsService.getCurrentDivisionData().subscribe(
-      (data) => {
-        this.createPaginator(data.numberOfItems, this.itemsPerPage);
-      },
-      (err: any) => {}
-    );
+    this.createPaginator(this.numberOfItems, this.itemsPerPage);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.createPaginator(this.numberOfItems, this.itemsPerPage);
   }
 
   OnChangePageNumber(pageNumber: number) {
@@ -52,7 +52,6 @@ export class DivisionPaginatorComponent implements OnInit {
 
   private createPaginator(numberOfItems: number, itemsPerPage: number) {
     this.pagesList = [];
-    this.numberOfItems = numberOfItems;
     const numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
     for (var i = 1; i <= numberOfPages; i++) {
       this.pagesList.push(i);
