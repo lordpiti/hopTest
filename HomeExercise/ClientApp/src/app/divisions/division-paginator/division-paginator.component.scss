@@ -7,6 +7,9 @@
     }
   }
   .paginator {
+    padding: 15px;
+    color: white;
+    background-color: #373151;
     margin-top: 20px;
     text-align: center;
     .paginatorItem {
@@ -20,7 +23,7 @@
   }
 
   .selectedPage {
-    background-color: darkblue;
-    color: white;
+    background-color: white;
+    color: #373151;
   }
 }
