@@ -25,11 +25,11 @@ namespace HomeExercise.Models
 
             DivisionItem other = (DivisionItem)obj;
 
-            return Title.Equals(other.Title)
-                && DivisionId.Equals(other.DivisionId)
-                && AyesCount.Equals(other.AyesCount)
-                && NoesCount.Equals(other.NoesCount)
-                && Note.Equals(other.Note);
+            return Title == other.Title
+                && DivisionId == other.DivisionId
+                && AyesCount == other.AyesCount
+                && NoesCount == other.NoesCount
+                && Note == Note;
         }
 
         public override int GetHashCode()
